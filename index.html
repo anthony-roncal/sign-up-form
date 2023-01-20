@@ -9,6 +9,58 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    
+    <div class="image-sidebar">
+        <div class="title-bar">
+            <h1>Odin</h1>
+        </div>
+        <p>
+            Photo by <a href="https://unsplash.com/@santesson89?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Andrea De Santis</a> 
+            on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+        </p>
+    </div>
+    <div class="content">
+        <p>This is not a real online service! 
+            You know you need something like this in your life to help you realize your deepest dreams. 
+            Sign up <em>now</em> to get started.</p>
+        <p>You <em>know</em> you want to.</p>
+        <form action="" method="post" id="form">
+            <div class="form">
+                <h3>Let's do this!</h3>
+                <div class="form-row">
+                    <div class="form-item">
+                        <label for="first-name">First Name</label>
+                        <input type="text" name="first-name" id="first-name" required placeholder="John">
+                    </div>
+                    <div class="form-item">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" name="last-name" id="last-name" required placeholder="Doe">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-item">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required placeholder="john@doe.com">
+                    </div>
+                    <div class="form-item">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" name="phone" id="phone" required minlength="10" maxlength="10" placeholder="5555555555">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-item">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" minlength="5" required placeholder="password">
+                    </div>
+                    <div class="form-item">
+                        <label for="password">Confirm Password</label>
+                        <input type="password" name="password2" id="password2" minlength="5" required placeholder="confirm password">
+                    </div>
+                </div>
+                <span class="error"></span>
+            </div>
+            <button type="submit">Create Account</button>
+            <p>Already have an account? <a href="">Log in</a></p>
+        </form>
+    </div>
 </body>
 </html>
