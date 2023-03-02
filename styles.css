@@ -89,8 +89,9 @@ body {
 .form-item {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 10px;
     width: 250px;
+    height: 57px;
+    align-content: flex-start;
 }
 
 input {
@@ -109,7 +110,7 @@ input:focus {
     box-shadow: 3px 3px 3px lightgrey;
 }
 
-input:not(:focus):not(:placeholder-shown):invalid {
+input.invalid {
     border: 1px solid red;
 }
 
