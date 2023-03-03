@@ -94,14 +94,10 @@ formPassword2.addEventListener('input', comparePasswords);
 function comparePasswords(e) {
     if(formPassword.value.length > 0 && formPassword2.value.length > 0) {
         if(formPassword.value !== formPassword2.value) {
-            console.log(`formPassword.value = ${formPassword.value}`);
-            console.log(`formPassword2.value = ${formPassword2.value}`);
             formPassword.className = 'invalid';
             formPassword2.className = 'invalid';
             errorPassword2.textContent = 'Passwords do not match';
         } else if (formPassword.value === formPassword2.value) {
-            console.log(`formPassword.value = ${formPassword.value}`);
-            console.log(`formPassword2.value = ${formPassword2.value}`);
             formPassword.className = 'valid';
             formPassword2.className = 'valid';
             errorPassword2.textContent = '';
@@ -124,6 +120,8 @@ form.addEventListener('submit', (e) => {
     });
     if(invalidFields.length === 0) {
         errorSubmitBtn.textContent = '';
+        form.reset();
+        console.log('successful');
     } else {
         errorMessage += invalidFields.join(', ');
         errorSubmitBtn.textContent = errorMessage;
