@@ -20,21 +20,21 @@ const errorSubmitBtn = formSubmitBtn.nextElementSibling;
 
 const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-const countryRegex = [
-    {country: "US", regex: /^\d{5}([\-]?\d{4})?$/},
-    {country: "UK", regex: /^(GIR|[A-Z]\d[A-Z\d]??|[A-Z]{2}\d[A-Z\d]??)[ ]??(\d[A-Z]{2})$/},
-    {country: "DE", regex: /^\d{5}$/},
-    {country: "CA", regex: /^([ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ])\ {0,1}(\d[ABCEGHJKLMNPRSTVWXYZ]\d)$/},
-    {country: "FR", regex: /^(F-)?((2[A|B])|[0-9]{2})[0-9]{3}$/},
-    {country: "IT", regex: /^(V-|I-)?[0-9]{5}$/},
-    {country: "AU", regex: /^(0[289][0-9]{2})|([1345689][0-9]{3})|(2[0-8][0-9]{2})|(290[0-9])|(291[0-4])|(7[0-4][0-9]{2})|(7[8-9][0-9]{2})$/},
-    {country: "NL", regex: /^[1-9][0-9]{3}\s?([a-zA-Z]{2})?$/},
-    {country: "ES", regex: /^([1-9]{2}|[0-9][1-9]|[1-9][0-9])[0-9]{3}$/},
-    {country: "DK", regex: /^([D|d][K|k]( |-))?[1-9]{1}[0-9]{3}$/},
-    {country: "SE", regex: /^(s-|S-){0,1}[0-9]{3}\s?[0-9]{2}$/},
-    {country: "BE", regex: /^[1-9]{1}[0-9]{3}$/},
-    {country: "IN", regex: /^\d{6}$/}
-];
+const countryRegex = {
+    "US": /^\d{5}([\-]?\d{4})?$/,
+    "UK": /^(GIR|[A-Z]\d[A-Z\d]??|[A-Z]{2}\d[A-Z\d]??)[ ]??(\d[A-Z]{2})$/,
+    "DE": /^\d{5}$/,
+    "CA": /^([ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ])\ {0,1}(\d[ABCEGHJKLMNPRSTVWXYZ]\d)$/,
+    "FR": /^(F-)?((2[A|B])|[0-9]{2})[0-9]{3}$/,
+    "IT": /^(V-|I-)?[0-9]{5}$/,
+    "AU": /^(0[289][0-9]{2})|([1345689][0-9]{3})|(2[0-8][0-9]{2})|(290[0-9])|(291[0-4])|(7[0-4][0-9]{2})|(7[8-9][0-9]{2})$/,
+    "NL": /^[1-9][0-9]{3}\s?([a-zA-Z]{2})?$/,
+    "ES": /^([1-9]{2}|[0-9][1-9]|[1-9][0-9])[0-9]{3}$/,
+    "DK": /^([D|d][K|k]( |-))?[1-9]{1}[0-9]{3}$/,
+    "SE": /^(s-|S-){0,1}[0-9]{3}\s?[0-9]{2}$/,
+    "BE": /^[1-9]{1}[0-9]{3}$/,
+    "IN": /^\d{6}$/
+};
 
 document.querySelectorAll('.form-item > input').forEach(input => input.addEventListener('input', isFieldEmpty));
 
@@ -71,17 +71,17 @@ formPhone.addEventListener('input', (e) => {
     }
 });
 
-countryRegex.forEach(item => {
+for(var key in countryRegex)  {
     var option = document.createElement('option');
-    option.value = item.country;
-    option.textContent = item.country;
+    option.value = key;
+    option.textContent = key;
     formCountry.appendChild(option);
-});
+};
 
 formCountry.addEventListener('change', () => formZip.value = '');
 
 formZip.addEventListener('input', () => {
-    var zipRegex = countryRegex.find(item => item.country === formCountry.value).regex;
+    var zipRegex = countryRegex[formCountry.value];
     if(formZip.value.length > 0 && !zipRegex.test(formZip.value)) {
         formZip.className = 'invalid';
         errorZip.textContent = 'Please enter a valid zip code';
