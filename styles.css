@@ -94,7 +94,8 @@ body {
     align-content: flex-start;
 }
 
-input {
+input,
+select {
     width: 100%;
     height: 25px;
     background-color: rgb(252, 252, 252);
@@ -103,14 +104,16 @@ input {
     box-sizing: border-box;
 }
 
-input:focus {
+input:focus,
+select:focus {
     outline: none;
     border: 1px solid blue;
     box-sizing: border-box;
     box-shadow: 3px 3px 3px lightgrey;
 }
 
-input.invalid {
+input.invalid, 
+select.invalid {
     border: 1px solid red;
 }
 
@@ -123,7 +126,7 @@ input.invalid {
 
 form > button,
 form > p {
-    margin-top: 30px;
+    margin-top: 10px;
     margin-left: 40px;
 }
 
