@@ -1,3 +1,3 @@
-# odin-sign-up-form
+# sign-up-form
 
-This is a practice project for The Odin Project: Sign-Up Form.
+View app at: https://anthony-roncal.github.io/sign-up-form/
