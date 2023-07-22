@@ -56,7 +56,7 @@ formEmail.addEventListener('input', () => {
 });
 
 formPhone.addEventListener('input', (e) => {
-    var phoneNumber = formPhone.value.replace(/[^\d]/g, '');
+    let phoneNumber = formPhone.value.replace(/[^\d]/g, '');
     formPhone.value = phoneNumber;
     if(phoneNumber.length < 4) formPhone.value = phoneNumber;
     if(phoneNumber.length >= 4 && phoneNumber.length < 7) {
@@ -71,8 +71,8 @@ formPhone.addEventListener('input', (e) => {
     }
 });
 
-for(var key in countryRegex)  {
-    var option = document.createElement('option');
+for(let key in countryRegex)  {
+    let option = document.createElement('option');
     option.value = key;
     option.textContent = key;
     formCountry.appendChild(option);
@@ -81,7 +81,7 @@ for(var key in countryRegex)  {
 formCountry.addEventListener('change', () => formZip.value = '');
 
 formZip.addEventListener('input', () => {
-    var zipRegex = countryRegex[formCountry.value];
+    let zipRegex = countryRegex[formCountry.value];
     if(formZip.value.length > 0 && !zipRegex.test(formZip.value)) {
         formZip.className = 'invalid';
         errorZip.textContent = 'Please enter a valid zip code';
